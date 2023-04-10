@@ -1625,7 +1625,7 @@ MonoBehaviour:
   scoreText: {fileID: 1667531258}
   gameOverScoreText: {fileID: 1282174602}
   gameOverTimeText: {fileID: 946895785}
-  waveSpawner: {fileID: 0}
+  menuScene: TitleScene
   gameTime: 0
   gameStarted: 0
   gamePaused: 0

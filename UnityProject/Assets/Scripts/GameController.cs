@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour
     [Tooltip("Where to display gameTime when GameOver")]
     public TMP_Text gameOverTimeText;
 
-    public WaveSpawner waveSpawner;
+    public string menuScene;
 
     [Header("Info")]
     public float gameTime;
@@ -40,11 +40,6 @@ public class GameController : MonoBehaviour
         {
             timeText.text = FormatTime(gameTime);
         }
-        /*if (gameStarted)
-        {
-            gameTime += Time.deltaTime;
-            timeText.text = FormatTime(gameTime);
-        }*/
     }
 
     // Method for formatting time
@@ -77,33 +72,6 @@ public class GameController : MonoBehaviour
         gameStarted = true;
     }
 
-    /*public void RestartGame()
-    {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        foreach (GameObject enemy in enemies)
-        {
-            Destroy(enemy);
-        }
-
-        GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
-        foreach (GameObject projectile in projectiles)
-        {
-            Destroy(projectile);
-        }
-
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        //player.GetComponent<PlayerCharacter>().Restart();
-
-        HealthController playerHealth = player.GetComponent<HealthController>();
-        playerHealth.ChangeHealth(playerHealth.maxHealth);
-
-        gameTime = 0;
-        score = 0;
-        UpdateScore(score);
-        waveSpawner.ReInitialize();
-        SetPauseGame(false); 
-    }*/
-
     public void RestartGame()
     {
         SetPauseGame(false);
@@ -113,7 +81,7 @@ public class GameController : MonoBehaviour
     public void ReturnToTitle()
     {
         SetPauseGame(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(menuScene);
     }
 
     public void GameOver()
